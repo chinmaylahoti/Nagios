@@ -1,0 +1,80 @@
+Nagios Adding Service Groups
+
+Start Apache and test it from Master
+
+Start httpd
+sudo serovice httpd start
+
+Test if Apache running
+service httpd status
+
+Check form browser
+*************************************
+Starting the Nagios service in Master
+
+Start nagios
+sudo systemctl start nagios.service 
+
+Check if it running
+service nagios status
+
+Check from browser
+************************************
+Start Apache and test it from Slave
+
+Start httpd
+sudo service httpd start
+
+Test if Apache running 
+service httpd status
+
+Check from browser
+***********************************
+Check th hosts in the nagios interface
+
+•	Copy ip address of Master
+•	Login from browser with following
+
+<public ip of master>/nagios
+
+•	Provide username as nagiosadmin and password (provided earlier)
+•	Go to hosts and check if the new slave server is added.
+*************************************
+Check the service groups in the Nagios service 
+************************************
+Configuration on Master
+
+Move to objects folder
+cd /usr/local/nagios/etc/objects
+
+Create a new configuration file servicegroups.cfg
+sudo nano servicegroups.cfg
+
+Add the contents as per the requirements
+**************************************
+Configuration on Master
+
+Open existing hosts.cfg file
+sudo nano hosts.cfg
+
+Create a new service as per requirements
+***************************************
+Configuration on Master
+
+We need to provide the path of the file to the nagios.cfg file.
+cd ..
+ls
+sudo nano nagios.cfg
+
+Add the path of service groups to nagios.cfg
+cfg_file=/usr/local/nagios/etc/objects/servicegroups.cfg
+*****************************************
+Verify all cnfigurations
+******************************
+Configuration on Master 
+
+restart nagios to start with new configuration
+sudo systemctl restart nagios
+******************************************
+Check the host groups in the nagios interface
+*****************************************

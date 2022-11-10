@@ -1,0 +1,99 @@
+Start Apache and test it from Master
+
+Start httpd
+sudo service httpd start
+
+Test if Apache running 
+service httpd status
+
+check from browser
+
+**********************************
+Starting the Nagios service in Master
+
+Start Nagios
+sudo systemctl start nagios.service
+
+Check if it running 
+service nagios status
+
+Check from browser
+**********************************
+Start Apache and test it from Slave
+
+Start httpd 
+sudo service httpd start
+
+Test if Apache running
+service https status
+
+Check from browser
+*********************************
+Check the hosts in the Nagios interface
+
+•	Copy ip address of Master
+•	Login from browser with following
+
+<public ip of master>/nagios
+
+•	Provide username as nagiosadmin and password (provided earlier)
+•	Go to hosts and check if the new slave server is added.
+*********************************
+Configuration on Master
+
+Move to objects folder
+cd /usr/local/nagios/etc/objects
+
+Check localhost.cfg
+sudo nano localhost.cfg
+
+Check services definition
+Copy the services definitions
+*********************************
+Configuration on Master
+
+Open hosts.cfg
+sudo nano hosts.cfg
+
+Contents of the hosts file
+*********************************
+Configuration on Master
+
+Goto command.cfg
+sudo nano commands.cfg
+
+Search for host alive service
+CTRL+w and write alive and enter
+
+Check the content and copy line
+command_name  check-host-alive
+***********************************
+Configuration on Master
+
+Open hosts.cfg
+sudo nano hosts.cfg
+
+Edit the file
+*******************************
+Configuration on Master
+
+Restart nagios to start with new configuration
+sudo systemctl restart nagios
+*******************************
+Check services in nagios interface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
